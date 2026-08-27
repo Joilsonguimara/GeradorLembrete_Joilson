@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Lembretes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!--Botão de tema escuro ou claro -->
+  <button id="btn-theme" class="btn-theme">🌙 Modo Escuro</button>
+
+  <main class="container">
+
+    <h1>📌 Meus Lembretes</h1>
+
+    <!-- Formulário de Entrada -->
+    <div class="card-inputs">
+      <div class="form-group">
+        <label for="input-texto">Descrição do Lembrete:</label>
+        <input type="text" id="input-texto" placeholder="Ex: Comprar leite no mercado...">
+      </div>
+
+      <div class="form-group">
+        <label for="select-prioridade">Prioridade:</label>
+        <select id="select-prioridade">
+          <option value="baixa">Baixa</option>
+          <option value="media">Média</option>
+          <option value="alta">Alta</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="input-data">Data de Vencimento:</label>
+        <input type="date" id="input-data">
+      </div>
+
+      <div class="form-group">
+        <label for="select-status">Status:</label>
+        <select id="select-status">
+          <option value="Pendente">Pendente</option>
+          <option value="Em Andamento">Em Andamento</option>
+          <option value="Concluído">Concluído</option>
+        </select>
+      </div>
+
+      <button id="btn-adicionar">Adicionar Lembrete</button>
+      <p id="msg-erro" class="erro"></p>
+    </div>
+
+    <!-- Barra de Pesquisa e Filtros -->
+    <div class="card-filtros">
+      <input type="text" id="filtro-busca" placeholder="🔍 Buscar por descrição...">
+      
+      <div class="filtros-grid">
+        <select id="filtro-prioridade">
+          <option value="">Todas as Prioridades</option>
+          <option value="baixa">Baixa</option>
+          <option value="media">Média</option>
+          <option value="alta">Alta</option>
+        </select>
+
+        <select id="filtro-status">
+          <option value="">Todos os Status</option>
+          <option value="Pendente">Pendente</option>
+          <option value="Em Andamento">Em Andamento</option>
+          <option value="Concluído">Concluído</option>
+        </select>
+
+        <input type="date" id="filtro-data">
+      </div>
+    </div>
+
+    <!-- Container onde os cards serão gerados -->
+    <section id="lista-lembretes" class="grid-lembretes"></section>
+    
+    <!-- Container onde os cards serão gerados dinamicamente -->
+    <section id="lista-lembretes" class="grid-lembretes"></section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
