@@ -10,7 +10,7 @@ const selectStatus = document.getElementById("select-status");
 
 
 
-const PRIORIDADE_PADRÃO = 'baixa'; //valor oadrai da oruirudade ysada oara resetar i sekect
+const PRIORIDADE_PADRAO = 'baixa'; //valor oadrai da oruirudade ysada oara resetar i sekect
 
 // Função auxiliar para formatar a data de AAAA-MM-DD para DD/MM/AAAA
 function formatarData(dataISO) {
@@ -40,7 +40,7 @@ function adicionarLembrete(){
     }
     
 
-    msgErro.testContent = '';
+    msgErro.textContent = '';
 
     //antes de criar o carde verifica se está sendo editado algum 
     const cardEditando = document.querySelector('.card-item[data-editando="true"]');
@@ -54,7 +54,13 @@ function adicionarLembrete(){
         
         //atualiza o texto 
         cardEditando.querySelector('strong').textContent = texto;
-        cardEditando.querySelector('small').innerHTML = `Prioridade: ${prioridade.toUpperCase()} | Status: <b>${status}</b> | Vence: ${formatarData(data)}`;
+        
+        const smallEdit = cardEditando.querySelector('small');
+        smallEdit.textContent = `Prioridade: ${prioridade.toUpperCase()} | Status: `;
+
+        const statusBold = document.createElement('b');
+        statusBold.textContent = status;
+        smallEdit.append(statusBold, ` | Vence: ${formatarData(data)}`);
 
         cardEditando.classList.remove('alta', 'media', 'baixa');
         cardEditando.classList.add(prioridade);
@@ -107,8 +113,11 @@ function criarCardLembrete(texto, prioridade,data, status){
 
     //elemento pequeno mostrando a prioridade em maiúscula
     const pequeno = document.createElement('small');
-    pequeno.innerHTML = `Prioridade: ${prioridade.toUpperCase()} | Status: <b>${status}</b> | Vence: ${formatarData(data)}`;
-
+    pequeno.textContent = `Prioridade: ${prioridade.toUpperCase()} | Status: `;
+    const statusBoldNovo = document.createElement('b');
+    statusBoldNovo.textContent = status;
+    pequeno.append(statusBoldNovo, ` | Vence: ${formatarData(data)}`);
+    
     // junta o paragrafo e o small
     infoWrapper.append(paragrafo, pequeno);
 
