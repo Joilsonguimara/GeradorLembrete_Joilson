@@ -1,3 +1,4 @@
+//variaveis principais
 
 const inputTexto = document.getElementById("input-texto");
 const selectPrioridade = document.getElementById("select-prioridade");
